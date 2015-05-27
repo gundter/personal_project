@@ -7,4 +7,5 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.resolve(__dirname, '../views/index.html'));
 });
 
+console.log('index loaded');
 module.exports = router;
