@@ -1,0 +1,21 @@
+<div ng-controller="PlayerController" class="container">
+    <h1>Player Creator</h1>
+    <p>Please enter the following information to create your player that will run through the Dungeon!</p>
+    <div class="col-md-3 text-center">
+        <label for="playerName">Player Name: </label>
+        <input id="playerName" type="text" placeholder="Enter your player name here" ng-model="player.playerName"/><br/>
+        <label for="playerPower">Player's Power: </label>
+        <input id="playerPower" type="text" value="" readonly="true" ng-model="player.playerPower"/><br/>
+        <label for="playerHealth">Player's Health: </label>
+        <input id="playerHealth" type="text" value="" readonly="true" ng-model="player.playerHeath"/><br/>
+
+        <div class="buttons">
+            <button class="btn btn-info" ng-click="">Click for Power!</button>
+            <button class="btn btn-info" ng-click="">Click for Health!</button>
+        </div>
+
+        <div class="btn playButton">PLAY!!!</div>
+    </div>
+
+
+</div>
