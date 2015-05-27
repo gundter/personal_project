@@ -6,9 +6,21 @@ module.exports = function(grunt){
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            build: {
+            app: {
                 src: 'client/scripts/app.js',
                 dest: 'public/javascripts/app.min.js'
+            },
+            login: {
+                src: 'client/scripts/login.js',
+                dest: 'public/javascripts/login.min.js'
+            },
+            player: {
+                src: 'client/scripts/player.js',
+                dest: 'public/javascripts/player.min.js'
+            },
+            registration: {
+                src: 'client/scripts/registration.js',
+                dest: 'public/javascripts/registration.min.js'
             }
         },
         copy: {

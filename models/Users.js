@@ -7,10 +7,7 @@ var UserSchema = new Schema({
     firstName: String,
     lastName: String,
     username: {type: String, required: true, index: {unique: true}},
-    password: {type: String, required: true},
-    playerName: String,
-    playerAttack: Number,
-    playerHealth: Number
+    password: {type: String, required: true}
 });
 
 UserSchema.pre('save', function(next){
@@ -34,5 +31,5 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb){
     });
 };
 
-console.log('assignment model loaded')
-module.exports = mongoose.model('User', UserSchema);
+console.log('assignment model loaded');
+module.exports = mongoose.model('Users', UserSchema);

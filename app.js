@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
-var Users = require('./models/users');
+var Users = require('./models/Users');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -16,7 +16,7 @@ var app = express();
 // Mongo setup
 var mongoose = require('mongoose');
 
-var mongoURI = "mongodb://localhost:27017/assignments";
+var mongoURI = "mongodb://localhost:27017/Dungeon";
 var MongoDB = mongoose.connect(mongoURI).connection;
 MongoDB.on('error', function (err) {
     console.log('mongodb connection error', err);
@@ -42,11 +42,14 @@ app.use(session({
     cookie: {maxAge: 60000, secure: false}
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 passport.serializeUser(function(user, done){
     done(null, user.id);
 });
 
-passport.deserializedUser(function(id, done){
+passport.deserializeUser(function(id, done){
     Users.findById(id, function(err, user){
         if (err) done(err);
         done (null, user);
@@ -57,7 +60,7 @@ passport.use('local', new localStrategy({
     passReqToCallback: true,
     usernameField: 'username'
 },
-function(username, password, done){
+function(req, username, password, done){
     Users.findOne({ username: username }, function(err, user){
         if (err) throw err;
         if(!user)
