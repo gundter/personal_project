@@ -10,6 +10,8 @@ var localStrategy = require('passport-local').Strategy;
 var Users = require('./models/Users');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var registration = require('./routes/registration');
+var players = require('./routes/players');
 
 var app = express();
 
@@ -34,6 +36,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(req, res, next){
+    if (!req.isAuthenticated())
+        return next();
+    else
+        express.static(path.join(__dirname, 'private'));
+});
+
 app.use(session({
     secret: 'secret',
     key: 'user',
@@ -75,6 +84,8 @@ function(req, username, password, done){
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/registration', registration);
+app.use('/players', players);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

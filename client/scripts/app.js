@@ -3,7 +3,7 @@ var myApp = angular.module('myApp',['ngRoute', 'appControllers']);
 var appControllers = angular.module('appControllers', []);
 
 
-myApp.config(['$routeProvider', function($routeProvider){
+myApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
     $routeProvider.
         when('/home', {
             templateUrl: "/views/login.html",
@@ -20,9 +20,18 @@ myApp.config(['$routeProvider', function($routeProvider){
         otherwise({
             redirectTo: "/home"
         });
-}]);
 
-/*
-when('/projects', {
-    templateUrl: "/views/routes/projects.html"
-}).*/
+    $httpProvider.interceptors.push(['$location', '$q', function($location, $q) {
+        return {
+            response: function(response) {
+                console.log(response);
+                return response;
+            },
+            responseError: function(response) {
+                if (response.status === 401)
+                    alert("Incorrect Username or Password");
+                    return $q.reject(response);
+            }
+        };
+    }]);
+}]);

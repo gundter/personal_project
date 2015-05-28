@@ -1,11 +1,11 @@
 <div class="container">
-    <form class="col-md-3 text-center" novalidate ng-submit="">
+    <form class="col-md-3 text-center" novalidate ng-submit="logIn(user)">
         <h1>Log in</h1>
         <p>Please enter your username and password to log in:</p>
         <label for="username">Username: </label>
         <input id="username" autofocus ng-required="true" type="text" placeholder="Enter username here!" ng-model="user.username"/><br>
         <label for="password">Password: </label>
-        <input id="password" ng-required="true" type="password" ng-model="user.password"/><br>
+        <input id="password" ng-required="true" type="password" placeholder="Enter password here!" ng-model="user.password"/><br>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>

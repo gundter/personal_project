@@ -7,5 +7,5 @@ var PlayerSchema = new Schema({
     playerHealth: Number
 });
 
-console.log('players loaded');
+console.log('player model loaded');
 module.exports = mongoose.model('Player', PlayerSchema);

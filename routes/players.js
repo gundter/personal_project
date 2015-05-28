@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Players = require('./routes/players');
+var Players = require('../models/Players');
 
 router.get('/', function(req, res, next){
     Players.find(function(err, players){
@@ -14,4 +14,7 @@ router.post('/', function(req, res, next){
         if (err) return next(err);
         res.json(post);
     })
-})
+});
+
+console.log('players loaded');
+module.exports = router;

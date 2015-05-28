@@ -48,7 +48,8 @@ module.exports = function(grunt){
                 cwd: "node_modules/",
                 src: [
                     "angular/angular.min.js",
-                    "angular-route/angular-route.min.js"
+                    "angular-route/angular-route.min.js",
+                    "angular-resource/angular-resource.min.js"
                 ],
                 "dest": "public/vendors/"
             },
@@ -58,7 +59,7 @@ module.exports = function(grunt){
                 src: "stylesheet.css",
                 "dest": "public/stylesheets/"
             },
-            views: {
+            publicViews: {
                 expand: true,
                 cwd: "client/views/",
                 src: [

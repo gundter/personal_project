@@ -31,5 +31,5 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb){
     });
 };
 
-console.log('assignment model loaded');
+console.log('user model loaded');
 module.exports = mongoose.model('Users', UserSchema);
