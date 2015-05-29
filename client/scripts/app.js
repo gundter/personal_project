@@ -17,6 +17,10 @@ myApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpP
             templateUrl: "/views/player.html",
             controller: 'PlayerController'
         }).
+        when('/combat',{
+            templateUrl: '/views/combat.html',
+            controller: 'CombatController'
+        }).
         otherwise({
             redirectTo: "/home"
         });

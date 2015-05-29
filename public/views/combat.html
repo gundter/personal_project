@@ -1,0 +1,20 @@
+<header>
+    <ul class="nav nav-tabs">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#registration">Register</a></li>
+        <li><a href="#player">Player Creation</a></li>
+        <li><a href="#combat">Combat</a></li>
+    </ul>
+</header>
+
+<div class="container">
+    <div class="monster text-center">
+        <h2>{{monster.monsterName}}</h2>
+        <p>Attack: {{monster.monsterAttack}}    Health: {{monster.monsterHealth}}</p>
+    </div>
+    <div class="player text-center">
+        <h2>{{player.playerName}}</h2>
+        <p>Attack: {{player.playerAttack}}  Health: {{player.playerHealth}}</p>
+        <button ng-click="fight()" class="btn btn-danger">FIGHT!</button>
+    </div>
+</div>

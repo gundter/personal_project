@@ -18,6 +18,10 @@ module.exports = function(grunt){
                 src: 'client/scripts/player.js',
                 dest: 'public/javascripts/player.min.js'
             },
+            combat:{
+                src: 'client/scripts/combat.js',
+                dest: 'public/javascripts/combat.min.js'
+            },
             registration: {
                 src: 'client/scripts/registration.js',
                 dest: 'public/javascripts/registration.min.js'
@@ -65,7 +69,8 @@ module.exports = function(grunt){
                 src: [
                     "login.html",
                     "registration.html",
-                    "player.html"
+                    "player.html",
+                    "combat.html"
                 ],
                 "dest": "public/views/"
             }
