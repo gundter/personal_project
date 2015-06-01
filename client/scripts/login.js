@@ -3,7 +3,6 @@ myApp.controller('LogInController', ['$scope', '$http', '$location', function($s
 
     $scope.user = {};
     $scope.users = [];
-    $scope.myNav = false;
 
     $scope.go = function (path){
         $location.path(path);
@@ -12,7 +11,6 @@ myApp.controller('LogInController', ['$scope', '$http', '$location', function($s
     $scope.logIn = function (user){
         $http.post('/', user).then(function(response){
             if(response.status === 200){
-                console.log('Login works!!!');
                 $scope.go('/player');
             }
         });

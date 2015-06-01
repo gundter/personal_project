@@ -21,6 +21,14 @@ myApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpP
             templateUrl: '/views/combat.html',
             controller: 'CombatController'
         }).
+        when('/win', {
+            templateUrl: '/views/win.html',
+            controller: 'WinController'
+        }).
+        when('/lose', {
+            templateUrl: '/views/lose.html',
+            controller: 'LoseController'
+        }).
         otherwise({
             redirectTo: "/home"
         });
@@ -28,7 +36,6 @@ myApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpP
     $httpProvider.interceptors.push(['$location', '$q', function($location, $q) {
         return {
             response: function(response) {
-                console.log(response);
                 return response;
             },
             responseError: function(response) {

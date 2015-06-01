@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 var MonsterSchema = new Schema({
     monsterName: String,
     monsterAttack: Number,
-    monsterHealth: Number
+    monsterHealth: Number,
+    monsterExp: Number
 });
 
 console.log('monster model loaded');

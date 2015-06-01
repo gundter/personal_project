@@ -2,12 +2,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 12;
+var PlayerSchema = require('../models/Players').model('Player').schema;
+
 
 var UserSchema = new Schema({
     firstName: String,
     lastName: String,
     username: {type: String, required: true, index: {unique: true}},
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    characters: [PlayerSchema]
 });
 
 UserSchema.pre('save', function(next){
