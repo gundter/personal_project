@@ -13,6 +13,7 @@ var users = require('./routes/users');
 var registration = require('./routes/registration');
 var players = require('./routes/players');
 var monsters = require('./routes/monsters');
+var items = require('./routes/items');
 
 var app = express();
 
@@ -88,6 +89,7 @@ app.use('/users', users);
 app.use('/registration', registration);
 app.use('/players', players);
 app.use('/monsters', monsters);
+app.use('/items', items);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

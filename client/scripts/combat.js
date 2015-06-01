@@ -1,13 +1,16 @@
-myApp.controller('CombatController', ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedPlayer', function($scope, $http, $location, SelectedPlayer){
     $scope.monsters = [];
+    console.log(SelectedPlayer);
 
     $scope.battlefield = function(){
-        $http.get('/monsters').then(function(response){
-            $scope.monsters = response.data;
-        });
-
-        $http.get('/players').then(function(response){
-            $scope.player = response.data[0];
+        //$http.get('/monsters').then(function(response){
+        //    $scope.monsters = response.data;
+        //});
+        //
+        $http.get('/users/combat/'+SelectedPlayer.playerId).then(function(response){
+            console.log(response.data);
+            $scope.player = response.data.characters[0];
+            console.log($scope.player);
         });
     };
 

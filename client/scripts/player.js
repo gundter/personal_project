@@ -1,27 +1,18 @@
-myApp.controller('PlayerController', ['$scope', '$http', function($scope, $http){
+myApp.factory('SelectedPlayer', function(){
+    return {playerId: ''};
+});
+
+myApp.controller('PlayerController', ['$scope', '$http', '$location', 'SelectedPlayer', function($scope, $http, $location, SelectedPlayer){
     console.log('Player Controller loaded');
+    $scope.player.playerName = {};
 
     $scope.randomNumber = function(min, max){
         return Math.floor(Math.random() * (1 + max - min) + min);
     };
 
-    /*$scope.genAttack = function (){
-        console.log("genAttack works");
-        $scope.attack = true;
-        var value = $scope.randomNumber(1,3);
-        switch (value){
-            case 1:
-                $scope.player.playerAttack = 30;
-                break;
-            case 2:
-                $scope.player.playerAttack = 40;
-                break;
-            case 3:
-                $scope.player.playerAttack = 50;
-                break;
-        }
-        //return $scope.player.playerPower = $scope.randomNumber(1, 20);
-    };*/
+    $scope.go = function (path){
+        $location.path(path);
+    };
 
     $scope.genHealth = function (){
         $scope.health = true;
@@ -40,22 +31,30 @@ myApp.controller('PlayerController', ['$scope', '$http', function($scope, $http)
                 $scope.player.playerHealth = 100;
                 break;
         }
-        //return $scope.player.playerHealth = $scope.randomNumber(1, 20);
     };
     $scope.getPlayers = function(){
-        return $http.get('/users/getPlayers').then(function(response){
-            return $scope.players = response.data;
+        $http.get('/users/getPlayers').then(function(response){
+            $scope.players = response.data;
+            $scope.health = false;
+            $scope.player.playerName = '';
         });
     };
 
     $scope.add = function(player){
         console.log("Entering Add function");
-        return $http.post('/users/add', player).then($scope.getPlayers());
+        $scope.player.playerAttack = 0;
+        $http.post('/users/add', player).then($scope.getPlayers());
     };
 
     $scope.delete = function(player){
       console.log('delete: ', player);
         $http.delete('/users/'+ player._id, player).then($scope.getPlayers());
+    };
+
+    $scope.selectPlayer = function(player){
+        SelectedPlayer.playerId = player._id;
+        console.log(SelectedPlayer.playerId);
+        $scope.go('/combat');
     };
 
     $scope.getPlayers();

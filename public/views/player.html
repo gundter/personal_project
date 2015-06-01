@@ -28,8 +28,8 @@
         <div ng-repeat="player in players.characters">
             <p>{{player.playerName}}</p>
             <p>{{player.playerHealth}}</p>
+            <button ng-click="selectPlayer(player)" class="btn btn-success">Select Player</button>
             <button ng-click="delete(player)" class="btn btn-danger">Delete Player</button>
         </div>
-        <button class="btn btn-info" ng-click="getPlayers()">Get Players</button>
     </div>
 </div>

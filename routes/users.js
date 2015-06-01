@@ -18,6 +18,16 @@ router.get('/getPlayers', function(req, res, next){
     })
 });
 
+router.get('/combat/:id', function(req, res, next){
+    Users.findOne({_id:req.user._id, 'characters._id': req.params.id}, {'characters.$':1}, function(err, model){
+       if(err){
+           console.log(err);
+           return res.send(err);
+       }
+        return res.json(model);
+    });
+});
+
 router.post('/add', function(req, res, next){
    Users.findByIdAndUpdate(req.user._id, {$push: {'characters': req.body}}, function(err, model){
        if (err){
