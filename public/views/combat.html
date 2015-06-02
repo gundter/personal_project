@@ -8,12 +8,83 @@
 </header>
 
 <div class="container">
-    <!--<div class="row">-->
-        <!--<div class="col-md-4 text-center" ng-repeat="monster in monsters">-->
-            <!--<h2>{{monster.monsterName}}</h2>-->
-            <!--<p>Attack: {{monster.monsterAttack}}    Health: {{monster.monsterHealth}}</p>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="row">
+        <div ng-show="explore" class="mansion col-md-12 text-center">
+            <h2>{{mansion[0].monsterName}}</h2>
+            <p>Attack: {{mansion[0].monsterAttack}}    Health: {{mansion[0].monsterHealth}}</p>
+        </div>
+    </div>
+    <div class="inventory">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3>{{items[9].name}}</h3>
+                <h4>{{items[9].itemType}}</h4>
+                <p>Cost: {{items[9].cost}}</p>
+                <p>Attack: {{items[9].itemAttack}}</p>
+                <p>Ammo Required: {{items[9].ammoRequired}}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>{{items[10].name}}</h3>
+                <h4>{{items[10].itemType}}</h4>
+                <p>Cost: {{items[10].cost}}</p>
+                <p>Attack: {{items[10].itemAttack}}</p>
+                <p>Ammo Required: {{items[10].ammoRequired}}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>{{items[8].name}}</h3>
+                <h4>{{items[8].itemType}}</h4>
+                <p>Cost: {{items[8].cost}}</p>
+                <p>Attack: {{items[8].itemAttack}}</p>
+                <p>Ammo Required: {{items[8].ammoRequired}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3>{{items[7].name}}</h3>
+                <h4>{{items[7].itemType}}</h4>
+                <p>Cost: {{items[7].cost}}</p>
+                <p>Attack: {{items[7].itemAttack}}</p>
+                <p>Ammo Received: {{items[7].ammoReceived}}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>{{items[6].name}}</h3>
+                <h4>{{items[6].itemType}}</h4>
+                <p>Cost: {{items[6].cost}}</p>
+                <p>Attack: {{items[6].itemAttack}}</p>
+                <p>Ammo Received: {{items[6].ammoReceived}}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>{{items[5].name}}</h3>
+                <h4>{{items[5].itemType}}</h4>
+                <p>Cost: {{items[5].cost}}</p>
+                <p>Attack: {{items[5].itemAttack}}</p>
+                <p>Ammo Received: {{items[5].ammoReceived}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3>{{items[0].name}}</h3>
+                <h4>{{items[0].itemType}}</h4>
+                <p>Cost: {{items[0].cost}}</p>
+                <p>Attack: {{items[0].itemAttack}}</p>
+                <p>Ammo Required: {{items[0].ammoReceived}}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>{{items[1].name}}</h3>
+                <h4>{{items[1].itemType}}</h4>
+                <p>Cost: {{items[1].cost}}</p>
+                <p>Attack: {{items[1].itemAttack}}</p>
+                <p>Ammo Required: {{items[1].ammoReceived}}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>{{items[4].name}}</h3>
+                <h4>{{items[4].itemType}}</h4>
+                <p>Cost: {{items[4].cost}}</p>
+                <p>Attack: {{items[4].itemAttack}}</p>
+                <p>Ammo Required: {{items[4].ammoReceived}}</p>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="player text-center">
             <h2>{{player.playerName}}</h2>

@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
+var MongoStore = require('connect-mongo')(session);
 var Users = require('./models/Users');
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -46,11 +47,14 @@ app.use(function(req, res, next){
 });
 
 app.use(session({
+    store: new MongoStore({
+        url: 'mongodb://localhost:27017/DungeonUsers'
+    }),
     secret: 'secret',
     key: 'user',
     resave: true,
     saveUninitialized: false,
-    cookie: {maxAge: 240000, secure: false}
+    cookie: {maxAge: null, secure: false}
 }));
 
 app.use(passport.initialize());

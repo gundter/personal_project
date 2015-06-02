@@ -9,6 +9,16 @@ router.get('/', function (req, res, next){
     });
 });
 
+router.get('/:id', function(req, res, next){
+    Items.findOne({_id:req.params.id}, function(err, model){
+        if(err){
+            console.log(err);
+            return res.send(err);
+        }
+        return res.json(model);
+    });
+});
+
 router.post('/', function(req, res, next){
     Items.create(req.body, function(err, post){
         if (err) next(err);

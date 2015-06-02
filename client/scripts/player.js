@@ -4,8 +4,6 @@ myApp.factory('SelectedPlayer', function(){
 
 myApp.controller('PlayerController', ['$scope', '$http', '$location', 'SelectedPlayer', function($scope, $http, $location, SelectedPlayer){
     console.log('Player Controller loaded');
-    $scope.player.playerName = {};
-
     $scope.randomNumber = function(min, max){
         return Math.floor(Math.random() * (1 + max - min) + min);
     };
@@ -36,19 +34,19 @@ myApp.controller('PlayerController', ['$scope', '$http', '$location', 'SelectedP
         $http.get('/users/getPlayers').then(function(response){
             $scope.players = response.data;
             $scope.health = false;
-            $scope.player.playerName = '';
+            $scope.players.playerName = '';
         });
     };
 
     $scope.add = function(player){
         console.log("Entering Add function");
         $scope.player.playerAttack = 0;
-        $http.post('/users/add', player).then($scope.getPlayers());
+        $http.post('/users/add', player).success($scope.getPlayers());
     };
 
     $scope.delete = function(player){
       console.log('delete: ', player);
-        $http.delete('/users/'+ player._id, player).then($scope.getPlayers());
+        $http.delete('/users/'+ player._id, player).success($scope.getPlayers());
     };
 
     $scope.selectPlayer = function(player){
