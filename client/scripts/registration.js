@@ -8,6 +8,6 @@ myApp.controller('RegistrationController', ['$scope', '$http', '$location', func
     };
 
     $scope.register = function(user){
-        $http.post('/registration', user).success($scope.go('/home'));
+        $http.post('/registration', user).then($scope.go('/home'));
     };
 }]);
