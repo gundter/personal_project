@@ -21,7 +21,7 @@ var app = express();
 // Mongo setup
 var mongoose = require('mongoose');
 
-var mongoURI = "mongodb://localhost:27017/Dungeon";
+var mongoURI = "mongodb://tgun6144:Prime@16@ds043082.mongolab.com:43082/dungeon";
 var MongoDB = mongoose.connect(mongoURI).connection;
 MongoDB.on('error', function (err) {
     console.log('mongodb connection error', err);
@@ -48,7 +48,7 @@ app.use(function(req, res, next){
 
 app.use(session({
     store: new MongoStore({
-        url: 'mongodb://localhost:27017/Dungeon'
+        url: 'mongodb://tgun6144:Prime@16@ds043082.mongolab.com:43082/dungeon'
     }),
     secret: 'secret',
     key: 'user',
