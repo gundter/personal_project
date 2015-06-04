@@ -47,9 +47,9 @@ app.use(function(req, res, next){
 });
 
 app.use(session({
-    store: new MongoStore({
-        url: 'mongodb://tgun6144:Prime@16@ds043082.mongolab.com:43082/dungeon'
-    }),
+    //store: new MongoStore({
+    //    url: mongoURI
+    //}),
     secret: 'secret',
     key: 'user',
     resave: true,
