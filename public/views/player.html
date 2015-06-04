@@ -8,7 +8,7 @@
 </header>
 
 <div class="row">
-    <div class="container col-md-3 text-center">
+    <div class="container col-md-6 text-center">
         <form novalidate ng-submit="add(player)">
             <h1>Player Creator</h1>
             <p>Please enter the following information to create your player that will run through the Dungeon!</p>
@@ -22,7 +22,7 @@
             <div ng-show="displaySubmit" class="btn playButton">PLAY!!!</div>
         </div>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-md-6 text-center">
         <div ng-repeat="player in players.characters">
             <p>{{player.playerName}}</p>
             <p>{{player.playerHealth}}</p>
