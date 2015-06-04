@@ -21,7 +21,7 @@ var app = express();
 // Mongo setup
 var mongoose = require('mongoose');
 
-var mongoURI = "mongodb://tgun6144:Prime@16@ds043082.mongolab.com:43082/dungeon";
+var mongoURI = "mongodb://tgun6144:Docix016@ds043082.mongolab.com:43082/dungeon";
 var MongoDB = mongoose.connect(mongoURI).connection;
 MongoDB.on('error', function (err) {
     console.log('mongodb connection error', err);
