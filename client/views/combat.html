@@ -68,11 +68,11 @@
                 <button ng-click="purchase(items[0])" class="btn btn-success">Purchase</button>
             </div>
             <div class="col-md-3 text-center">
-                <h3>{{items[10].name}}</h3>
-                <h4>{{items[10].itemType}}</h4>
-                <p>Cost: {{items[10].cost}}</p>
-                <p>Ammo Received: {{items[10].ammoReceived}}</p>
-                <button ng-click="purchase(items[10])" class="btn btn-success">Purchase</button>
+                <h3>{{items[11].name}}</h3>
+                <h4>{{items[11].itemType}}</h4>
+                <p>Cost: {{items[11].cost}}</p>
+                <p>Ammo Received: {{items[11].ammoReceived}}</p>
+                <button ng-click="purchase(items[11])" class="btn btn-success">Purchase</button>
             </div>
         </div>
         <div class="row">
@@ -101,17 +101,18 @@
                 <button ng-click="purchase(items[6])" class="btn btn-success">Purchase</button>
             </div>
             <div class="col-md-3 text-center">
-                <h3>{{items[11].name}}</h3>
-                <h4>{{items[11].itemType}}</h4>
-                <p>Cost: {{items[11].cost}}</p>
-                <p>Ammo Received: {{items[11].ammoReceived}}</p>
-                <button ng-click="purchase(items[11])" class="btn btn-success">Purchase</button>
+                <h3>{{items[10].name}}</h3>
+                <h4>{{items[10].itemType}}</h4>
+                <p>Cost: {{items[10].cost}}</p>
+                <p>Ammo Received: {{items[10].ammoReceived}}</p>
+                <button ng-click="purchase(items[10])" class="btn btn-success">Purchase</button>
             </div>
         </div>
     </div>
     <div class="row text-center">
         <div class="col-md-4 text-center">
             <div class="mansion">
+                <h2 ng-hide="monster">Explore If You Dare...</h2>
                 <h2 ng-show="monster">{{easyMansion[0].monsterName}}</h2>
                 <p ng-show="monster">Attack: {{easyMansion[0].monsterAttack}}    Health: {{easyMansion[0].monsterHealth}}</p>
             </div>

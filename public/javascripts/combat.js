@@ -1,18 +1,20 @@
 myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedPlayer', function($scope, $http, $location, SelectedPlayer){
-    $scope.mansion = [];
-    $scope.easyMansion = [];
-    $scope.mediumMansion = [];
-    $scope.hardMansion = [];
-    $scope.playerInventory = [];
-    $scope.items = [];
-    $scope.money = 0;
-    $scope.bullets = 0;
+    //setting ng-show variables
     $scope.supplies = false;
-    $scope.buy = 1;
-    $scope.explore = 1;
     $scope.monster = false;
     $scope.used = false;
-    console.log(SelectedPlayer);
+
+    //declaring arrays
+    $scope.mansion = [];
+    $scope.easyMansion = [];
+    $scope.playerInventory = [];
+    $scope.items = [];
+
+    //declaring data-binded items not being set by objects within the database
+    $scope.money = 0;
+    $scope.bullets = 0;
+    $scope.buy = 1;
+    $scope.explore = 1;
 
     $scope.buildMansion = function(array){
         return $scope.mansion = array;
@@ -234,6 +236,7 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
 
     $scope.gather = function(array){
         $scope.supplies = true;
+        $scope.used = false;
         for(var i = 0; i < 5; i++){
             if(array[i].gold !== null){
                 console.log("Entering gold conditional");
@@ -272,17 +275,14 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     };
 
     $scope.nextTurn = function(){
-        $scope.used = false;
-        $scope.supplies = false;
-        $scope.supplies = true;
+        $scope.monster = false;
         $scope.buy = 1;
         $scope.explore = 1;
-        $scope.shuffle($scope.playerInventory);
-        $scope.shuffle($scope.easyMansion);
-        $scope.monster = false;
         $scope.money = 0;
         $scope.player.playerAttack = 0;
         $scope.bullets = 0;
+        $scope.shuffle($scope.playerInventory);
+        $scope.shuffle($scope.easyMansion);
         $scope.gather($scope.playerInventory);
     };
 
