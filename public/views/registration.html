@@ -6,7 +6,7 @@
 </header>
 
 <div class="container">
-    <form class="col-md-3 text-center" novalidate ng-submit="register(user)">
+    <form class="text-center" novalidate ng-submit="register(user)">
         <h1>Registration</h1>
         <p>Please enter the following information to register:</p>
         <label for="firstName">First Name: </label>
@@ -16,7 +16,7 @@
         <label for="username">Username: </label>
         <input id="username" ng-required="true" placeholder="Enter your username" type="text" ng-model="user.username"/><br/>
         <label for="password">Password: </label>
-        <input id="password" ng-required="true" type="password" ng-model="user.password"/><br/>
+        <input id="password" ng-required="true" placeholder="Enter your password here" type="password" ng-model="user.password"/><br/>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>

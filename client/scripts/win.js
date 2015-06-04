@@ -8,6 +8,6 @@ myApp.controller('WinController', ['$scope', '$location', function($scope, $loca
     };
 
     $scope.playAgain = function (){
-        $scope.go('/combat')
+        $scope.go('/player');
     };
 }]);

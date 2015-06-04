@@ -6,6 +6,6 @@ myApp.controller('LoseController', ['$scope', '$location', function($scope, $loc
     };
 
     $scope.playAgain = function (){
-        $scope.go('/combat')
+        $scope.go('/player');
     };
 }]);
