@@ -9,30 +9,6 @@ module.exports = function(grunt){
             app: {
                 src: 'client/scripts/app.js',
                 dest: 'public/javascripts/app.min.js'
-            },
-            login: {
-                src: 'client/scripts/login.js',
-                dest: 'public/javascripts/login.min.js'
-            },
-            player: {
-                src: 'client/scripts/player.js',
-                dest: 'public/javascripts/player.min.js'
-            },
-            combat:{
-                src: 'client/scripts/combat.js',
-                dest: 'public/javascripts/combat.min.js'
-            },
-            win: {
-                src: 'client/scripts/win.js',
-                dest: 'public/javascripts/win.min.js'
-            },
-            lose: {
-                src: 'client/scripts/lose.js',
-                dest: 'public/javascripts/lose.min.js'
-            },
-            registration: {
-                src: 'client/scripts/registration.js',
-                dest: 'public/javascripts/registration.min.js'
             }
         },
         copy: {
@@ -65,6 +41,23 @@ module.exports = function(grunt){
                 ],
                 "dest": "public/vendors/"
             },
+            angularAnimate:{
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "angular-animate/angular-animate.min.js",
+                    "angular-animate/angular-animate.min.js.map"
+                ],
+                "dest": "public/vendors/"
+            },
+            angularClass: {
+                expand: true,
+                cwd: "node_modules/",
+                src: [
+                    "angular-class/angular-class.min.js"
+                ],
+                "dest": "public/vendors/"
+            },
             css: {
                 expand: true,
                 cwd: "client/stylesheets/",
@@ -83,6 +76,20 @@ module.exports = function(grunt){
                     "lose.html"
                 ],
                 "dest": "public/views/"
+            },
+            scripts: {
+                expand: true,
+                cwd: 'client/scripts/',
+                src: [
+                    "app.js",
+                    "combat.js",
+                    "login.js",
+                    "lose.js",
+                    "player.js",
+                    "registration.js",
+                    "win.js"
+                ],
+                "dest": "public/javascripts/"
             }
         }
     });

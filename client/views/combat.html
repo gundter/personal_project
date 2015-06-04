@@ -9,9 +9,11 @@
 
 <div class="container">
     <div class="row">
-        <div class="mansion col-md-12 text-center">
-            <h2>{{mansion[0].monsterName}}</h2>
-            <p>Attack: {{mansion[0].monsterAttack}}    Health: {{mansion[0].monsterHealth}}</p>
+        <div class="col-md-12 text-center">
+            <div class="mansion">
+                <h2 ng-show="monster">{{mansion[0].monsterName}}</h2>
+                <p ng-show="monster">Attack: {{mansion[0].monsterAttack}}    Health: {{mansion[0].monsterHealth}}</p>
+            </div>
         </div>
     </div>
     <div class="inventory">
@@ -94,21 +96,30 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div ng-repeat="item in playerInventory | limitTo: 5">
+    <div class="row text-center">
+        <div class="player col-md-6 text-center">
+            <h2>{{player.playerName}}</h2>
+            <p>Attack: {{player.playerAttack}}  Health: {{player.playerHealth}}    Gold: {{money}}    Ammo: {{bullets}}</p>
+            <button ng-click="exploreMansion()" class="btn btn-info">Explore</button>
+            <button ng-click="fight()" class="btn btn-danget">Fight Monster</button>
+            <button ng-click="gather(playerInventory)" class="btn btn-success">Gather Supplies</button>
+            <button ng-click="nextTurn()" class="btn btn-warning">Next Turn</button>
+        </div>
+        <div class="col-md-6 text-center">
+            <h4>Number of Buys left: {{buy}}</h4>
+            <h4>Number of Explores left: {{explore}}</h4>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div ng-show="supplies" class="col-md-12">
+            <div ng-click="selected(item)" class="col-sm-2" ng-repeat="item in playerInventory | limitTo: 5">
                 <h3>{{item.name}}</h3>
-                <p>{{item.itemType}}</p>
+                <h4>{{item.itemType}}</h4>
                 <p>Attack: {{item.itemAttack}}</p>
                 <p>Ammo Required: {{item.ammoRequired}}</p>
                 <p>Ammo Received: {{item.ammoReceived}}</p>
                 <p>Gold Gained: {{item.gold}}</p>
             </div>
-        </div>
-        <div class="player col-md-3 text-center">
-            <h2>{{player.playerName}}</h2>
-            <p>Attack: {{player.playerAttack}}  Health: {{player.playerHealth}}</p>
-            <button ng-click="fight()" class="btn btn-danger">FIGHT!</button>
         </div>
     </div>
 </div>

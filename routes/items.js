@@ -26,5 +26,12 @@ router.post('/', function(req, res, next){
     });
 });
 
+router.put('/:id', function(req, res, next){
+    Items.findByIdAndUpdate(req.params.id, req.body, function(err, post){
+        if(err) next(err);
+        res.json(post);
+    })
+});
+
 console.log('Items loaded');
 module.exports = router;
