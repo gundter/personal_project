@@ -3,22 +3,28 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#registration">Register</a></li>
         <li><a href="#player">Player Creation</a></li>
+        <li><a href="#combat">Combat</a></li>
     </ul>
 </header>
 
 <div class="row">
-    <div class="container col-md-6 text-center">
-        <div>
+    <div class="container col-md-3 text-center">
+        <form novalidate ng-submit="add(player)">
             <h1>Player Creator</h1>
             <p>Please enter the following information to create your player that will run through the Dungeon!</p>
             <label for="playerName">Player Name: </label>
             <input id="playerName" autofocus ng-required="true" type="text" placeholder="Enter your player name here" ng-model="player.playerName"/><br/>
+            <!--<p ng-show="attack">Players attack is: {{player.playerAttack}}</p>-->
             <p ng-show="health">Player's health is: {{player.playerHealth}}</p>
+            <button class="btn btn-info" type="submit">Submit Player</button>
+        </form>
+        <div class="buttons">
+            <!--<button class="btn btn-info" ng-click="genAttack()">Click for Power!</button>-->
             <button class="btn btn-info" ng-click="genHealth()">Click for Health!</button><br/>
-            <button class="btn btn-info" ng-click="add(player)">Submit Player</button>
+            <div ng-show="displaySubmit" class="btn playButton">PLAY!!!</div>
         </div>
     </div>
-    <div class="col-md-6 text-center">
+    <div class="col-md-3 text-center">
         <div ng-repeat="player in players.characters">
             <p>{{player.playerName}}</p>
             <p>{{player.playerHealth}}</p>
