@@ -8,17 +8,17 @@
 </header>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="mansion">
-                <h2 ng-show="monster">{{mansion[0].monsterName}}</h2>
-                <p ng-show="monster">Attack: {{mansion[0].monsterAttack}}    Health: {{mansion[0].monsterHealth}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="inventory">
+    <!--<div class="row">-->
+        <!--<div class="col-md-12 text-center">-->
+            <!--<div class="mansion">-->
+                <!--<h2 ng-show="monster">{{mansion[0].monsterName}}</h2>-->
+                <!--<p ng-show="monster">Attack: {{mansion[0].monsterAttack}}    Health: {{mansion[0].monsterHealth}}</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="store">
         <div class="row">
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
                 <h3>{{items[9].name}}</h3>
                 <h4>{{items[9].itemType}}</h4>
                 <p>Cost: {{items[9].cost}}</p>
@@ -26,7 +26,7 @@
                 <p>Ammo Required: {{items[9].ammoRequired}}</p>
                 <button ng-click="purchase(items[9])" class="btn btn-success">Purchase</button>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
                 <h3>{{items[10].name}}</h3>
                 <h4>{{items[10].itemType}}</h4>
                 <p>Cost: {{items[10].cost}}</p>
@@ -34,7 +34,7 @@
                 <p>Ammo Required: {{items[10].ammoRequired}}</p>
                 <button ng-click="purchase(items[10])" class="btn btn-success">Purchase</button>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
                 <h3>{{items[8].name}}</h3>
                 <h4>{{items[8].itemType}}</h4>
                 <p>Cost: {{items[8].cost}}</p>
@@ -42,83 +42,113 @@
                 <p>Ammo Required: {{items[8].ammoRequired}}</p>
                 <button ng-click="purchase(items[8])" class="btn btn-success">Purchase</button>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
                 <h3>{{items[7].name}}</h3>
                 <h4>{{items[7].itemType}}</h4>
                 <p>Cost: {{items[7].cost}}</p>
-                <p>Attack: {{items[7].itemAttack}}</p>
                 <p>Ammo Received: {{items[7].ammoReceived}}</p>
                 <button ng-click="purchase(items[7])" class="btn btn-success">Purchase</button>
             </div>
-            <div class="col-md-4 text-center">
-                <h3>{{items[6].name}}</h3>
-                <h4>{{items[6].itemType}}</h4>
-                <p>Cost: {{items[6].cost}}</p>
-                <p>Attack: {{items[6].itemAttack}}</p>
-                <p>Ammo Received: {{items[6].ammoReceived}}</p>
-                <button ng-click="purchase(items[6])" class="btn btn-success">Purchase</button>
-            </div>
-            <div class="col-md-4 text-center">
-                <h3>{{items[5].name}}</h3>
-                <h4>{{items[5].itemType}}</h4>
-                <p>Cost: {{items[5].cost}}</p>
-                <p>Attack: {{items[5].itemAttack}}</p>
-                <p>Ammo Received: {{items[5].ammoReceived}}</p>
-                <button ng-click="purchase(items[5])" class="btn btn-success">Purchase</button>
-            </div>
         </div>
         <div class="row">
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
                 <h3>{{items[0].name}}</h3>
                 <h4>{{items[0].itemType}}</h4>
                 <p>Cost: {{items[0].cost}}</p>
                 <p>Attack: {{items[0].itemAttack}}</p>
-                <p>Ammo Required: {{items[0].ammoReceived}}</p>
+                <p>Ammo Required: {{items[0].ammoRequired}}</p>
                 <button ng-click="purchase(items[0])" class="btn btn-success">Purchase</button>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
                 <h3>{{items[1].name}}</h3>
                 <h4>{{items[1].itemType}}</h4>
                 <p>Cost: {{items[1].cost}}</p>
                 <p>Attack: {{items[1].itemAttack}}</p>
-                <p>Ammo Required: {{items[1].ammoReceived}}</p>
+                <p>Ammo Required: {{items[1].ammoRequired}}</p>
                 <button ng-click="purchase(items[1])" class="btn btn-success">Purchase</button>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
                 <h3>{{items[4].name}}</h3>
                 <h4>{{items[4].itemType}}</h4>
                 <p>Cost: {{items[4].cost}}</p>
                 <p>Attack: {{items[4].itemAttack}}</p>
-                <p>Ammo Required: {{items[4].ammoReceived}}</p>
+                <p>Ammo Required: {{items[4].ammoRequired}}</p>
                 <button ng-click="purchase(items[4])" class="btn btn-success">Purchase</button>
+            </div>
+            <div class="col-md-3 text-center">
+                <h3>{{items[6].name}}</h3>
+                <h4>{{items[6].itemType}}</h4>
+                <p>Cost: {{items[6].cost}}</p>
+                <p>Ammo Received: {{items[6].ammoReceived}}</p>
+                <button ng-click="purchase(items[6])" class="btn btn-success">Purchase</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <h3>{{items[11].name}}</h3>
+                <h4>{{items[11].itemType}}</h4>
+                <p>Cost: {{items[11].cost}}</p>
+                <p>Attack: {{items[11].itemAttack}}</p>
+                <p>Ammo Received: {{items[11].ammoRequired}}</p>
+                <button ng-click="purchase(items[11])" class="btn btn-success">Purchase</button>
+            </div>
+            <div class="col-md-3 text-center">
+                <h3>{{items[12].name}}</h3>
+                <h4>{{items[12].itemType}}</h4>
+                <p>Cost: {{items[12].cost}}</p>
+                <p>Attack: {{items[12].itemAttack}}</p>
+                <p>Ammo Received: {{items[12].ammoRequired}}</p>
+                <button ng-click="purchase(items[12])" class="btn btn-success">Purchase</button>
+            </div>
+            <div class="col-md-3 text-center">
+                <h3>{{items[13].name}}</h3>
+                <h4>{{items[13].itemType}}</h4>
+                <p>Cost: {{items[13].cost}}</p>
+                <p>Attack: {{items[13].itemAttack}}</p>
+                <p>Ammo Received: {{items[13].ammoRequired}}</p>
+                <button ng-click="purchase(items[13])" class="btn btn-success">Purchase</button>
+            </div>
+            <div class="col-md-3 text-center">
+                <h3>{{items[5].name}}</h3>
+                <h4>{{items[5].itemType}}</h4>
+                <p>Cost: {{items[5].cost}}</p>
+                <p>Ammo Received: {{items[5].ammoReceived}}</p>
+                <button ng-click="purchase(items[5])" class="btn btn-success">Purchase</button>
             </div>
         </div>
     </div>
     <div class="row text-center">
-        <div class="player col-md-6 text-center">
+        <div class="col-md-4 text-center">
+            <div class="mansion">
+                <h2 ng-show="monster">{{easyMansion[0].monsterName}}</h2>
+                <p ng-show="monster">Attack: {{easyMansion[0].monsterAttack}}    Health: {{easyMansion[0].monsterHealth}}</p>
+            </div>
+        </div>
+        <div class="player col-md-4 text-center">
             <h2>{{player.playerName}}</h2>
             <p>Attack: {{player.playerAttack}}  Health: {{player.playerHealth}}    Gold: {{money}}    Ammo: {{bullets}}</p>
             <button ng-click="exploreMansion()" class="btn btn-info">Explore</button>
-            <button ng-click="fight()" class="btn btn-danget">Fight Monster</button>
-            <button ng-click="gather(playerInventory)" class="btn btn-success">Gather Supplies</button>
+            <!--<button ng-click="fight()" ng-disabled="explored" class="btn btn-danger">Fight Monster</button>-->
+            <button ng-click="gather(playerInventory)" class="btn btn-success">Start Game</button>
             <button ng-click="nextTurn()" class="btn btn-warning">Next Turn</button>
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-md-4 text-center">
             <h4>Number of Buys left: {{buy}}</h4>
             <h4>Number of Explores left: {{explore}}</h4>
         </div>
     </div>
-    <div class="row text-center">
-        <div ng-show="supplies" class="col-md-12">
-            <div ng-click="selected(item)" class="col-sm-2" ng-repeat="item in playerInventory | limitTo: 5">
-                <h3>{{item.name}}</h3>
-                <h4>{{item.itemType}}</h4>
-                <p>Attack: {{item.itemAttack}}</p>
-                <p>Ammo Required: {{item.ammoRequired}}</p>
-                <p>Ammo Received: {{item.ammoReceived}}</p>
-                <p>Gold Gained: {{item.gold}}</p>
+    <div class="inventory">
+        <div class="row text-center">
+            <div ng-show="supplies" class="col-md-12">
+                <div class="col-sm-2" ng-repeat="item in playerInventory | limitTo: 5">
+                    <h3>{{item.name}}</h3>
+                    <h4>{{item.itemType}}</h4>
+                    <p>Attack: {{item.itemAttack}}</p>
+                    <p>Ammo Required: {{item.ammoRequired}}</p>
+                    <p>Ammo Received: {{item.ammoReceived}}</p>
+                    <p>Gold Gained: {{item.gold}}</p>
+                    <button ng-click="selected(item)" class="btn btn-success" ng-disabled='used'>Use Item</button>
+                </div>
             </div>
         </div>
     </div>

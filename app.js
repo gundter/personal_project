@@ -48,7 +48,7 @@ app.use(function(req, res, next){
 
 app.use(session({
     store: new MongoStore({
-        url: 'mongodb://localhost:27017/DungeonUsers'
+        url: 'mongodb://localhost:27017/Dungeon'
     }),
     secret: 'secret',
     key: 'user',

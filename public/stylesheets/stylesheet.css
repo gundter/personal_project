@@ -1,11 +1,17 @@
-.inventory .col-md-4{
-    border: 1px solid black;
+.store .row{
+   height: 260px;
 }
 
-.col-sm-2 {
+.store .col-md-3{
     border: 1px solid black;
+    height: inherit;
 }
 
-.selected {
-    border: 3px solid yellow;
+.inventory .col-md-12 {
+    height: 280px;
+}
+
+.inventory .col-sm-2 {
+    border: 1px solid black;
+    height: inherit;
 }

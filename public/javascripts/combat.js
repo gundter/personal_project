@@ -11,10 +11,122 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     $scope.buy = 1;
     $scope.explore = 1;
     $scope.monster = false;
+    $scope.used = false;
     console.log(SelectedPlayer);
 
     $scope.buildMansion = function(array){
         return $scope.mansion = array;
+    };
+
+    $scope.buildBasicMansion = function(array){
+        var monsterId;
+        for(var i = 0; i<array.length; i++) {
+            if (array[i].monsterName == "Lurker") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 3; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+            }
+            if (array[i].monsterName == "Garrador") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 2; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+
+            }
+            if (array[i].monsterName == "Duvalia") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 2; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+
+            }
+            if (array[i].monsterName == "Proto Tyrant") {
+                monsterId = array[i]._id;
+                $http.get('/monsters/' + monsterId).then(function (response) {
+                    $scope.easyMansion.push(response.data);
+                });
+            }
+            if (array[i].monsterName == "Zombie Horde") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 3; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+
+            }
+            if (array[i].monsterName == "Infected Bat") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 3; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+
+            }
+            if (array[i].monsterName == "Kipepeo") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 3; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+            }
+            if (array[i].monsterName == "Cephalo") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 3; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+            }
+            if (array[i].monsterName == "Nosferatu") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 2; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+            }
+            if (array[i].monsterName == "Zombie") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 3; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+            }
+            if (array[i].monsterName == "Licker") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 2; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+            }
+            if (array[i].monsterName == "Iron Maiden") {
+                monsterId = array[i]._id;
+                for (var j = 0; j < 2; j++) {
+                    $http.get('/monsters/' + monsterId).then(function (response) {
+                        $scope.easyMansion.push(response.data);
+                    });
+                }
+            }
+            if (array[i].monsterName == "Albert Wesker") {
+                monsterId = array[i]._id;
+                $http.get('/monsters/' + monsterId).then(function (response) {
+                    $scope.easyMansion.push(response.data);
+                });
+            }
+        }
+
     };
 
     $scope.getItems = function (){
@@ -57,6 +169,7 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     $scope.battlefield = function(){
         $http.get('/monsters').then(function(response){
             console.log(response.data);
+            $scope.buildBasicMansion(response.data);
             $scope.buildMansion(response.data);
 
         });
@@ -78,21 +191,23 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
         }else{
             $scope.monster = true;
             $scope.explore -= 1;
+            $scope.fight();
         }
     };
 
     $scope.fight = function(){
-        $scope.outcome = $scope.mansion[0].monsterHealth - $scope.player.playerAttack;
-        $scope.mansion[0].monsterHealth = $scope.outcome;
+        $scope.outcome = $scope.easyMansion[0].monsterHealth - $scope.player.playerAttack;
+        $scope.easyMansion[0].monsterHealth = $scope.outcome;
         if ($scope.outcome <= 0) {
-            $scope.mansion.shift();
-            if($scope.mansion.length === 0){
+            alert("You beat " + $scope.easyMansion[0].monsterName + "!");
+            $scope.easyMansion.shift();
+            if($scope.easyMansion.length === 0){
                 $scope.go('/win');
             }
         }else{
             console.log($scope.player.playerHealth);
-            console.log($scope.mansion[0].monsterAttack);
-            var result = $scope.player.playerHealth - $scope.mansion[0].monsterAttack;
+            console.log($scope.easyMansion[0].monsterAttack);
+            var result = $scope.player.playerHealth - $scope.easyMansion[0].monsterAttack;
             console.log(result);
             $scope.player.playerHealth = result;
         }
@@ -100,7 +215,6 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
         if($scope.player.playerHealth <= 0){
             $scope.go('/lose');
         }
-        $scope.monster = false;
     };
 
     $scope.purchase = function(item){
@@ -140,13 +254,14 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
         if($scope.bullets < item.ammoRequired){
             alert("You don't have enough ammo for this weapon");
         }else{
+            this.used = true;
             $scope.bullets -= item.ammoRequired;
             $scope.player.playerAttack += item.itemAttack;
         }
     };
 
 
-    $scope.shuffleInventory = function(array){
+    $scope.shuffle = function(array){
         for (var i = array.length -1; i > 0; i--){
             var j = Math.floor(Math.random() * (i + 1));
             var temp = array[i];
@@ -157,9 +272,13 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     };
 
     $scope.nextTurn = function(){
+        $scope.used = false;
+        $scope.supplies = false;
+        $scope.supplies = true;
         $scope.buy = 1;
         $scope.explore = 1;
-        $scope.shuffleInventory($scope.playerInventory);
+        $scope.shuffle($scope.playerInventory);
+        $scope.shuffle($scope.easyMansion);
         $scope.monster = false;
         $scope.money = 0;
         $scope.player.playerAttack = 0;

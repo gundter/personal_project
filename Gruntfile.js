@@ -61,7 +61,10 @@ module.exports = function(grunt){
             css: {
                 expand: true,
                 cwd: "client/stylesheets/",
-                src: "stylesheet.css",
+                src: [
+                    "stylesheet.css",
+                    "bootstrap.theme.min.css"
+                ],
                 "dest": "public/stylesheets/"
             },
             publicViews: {

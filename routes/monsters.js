@@ -16,5 +16,15 @@ router.post('/', function(req, res, next){
     });
 });
 
+router.get('/:id', function(req, res, next){
+    Monsters.findOne({_id:req.params.id}, function(err, model){
+        if(err){
+            console.log(err);
+            return res.send(err);
+        }
+        return res.json(model);
+    });
+});
+
 console.log('Monsters loaded');
 module.exports = router;
