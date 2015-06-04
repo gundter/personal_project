@@ -2,8 +2,6 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     //setting ng-show variables
     $scope.supplies = false;
     $scope.monster = false;
-    $scope.used = false;
-
     //declaring arrays
     $scope.mansion = [];
     $scope.easyMansion = [];
@@ -236,7 +234,6 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
 
     $scope.gather = function(array){
         $scope.supplies = true;
-        $scope.used = false;
         for(var i = 0; i < 5; i++){
             if(array[i].gold !== null){
                 console.log("Entering gold conditional");
@@ -257,7 +254,6 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
         if($scope.bullets < item.ammoRequired){
             alert("You don't have enough ammo for this weapon");
         }else{
-            this.used = true;
             $scope.bullets -= item.ammoRequired;
             $scope.player.playerAttack += item.itemAttack;
         }
