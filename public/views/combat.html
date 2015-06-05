@@ -21,7 +21,7 @@
             <div class="player col-md-4 text-center">
                 <h2>{{player.playerName}}</h2>
                 <p>Attack: {{player.playerAttack}}  Health: {{player.playerHealth}}    Gold: {{money}}    Ammo: {{bullets}}</p>
-                <button ng-click="exploreMansion()" class="btn btn-info">Explore</button>
+                <button ng-click="exploreMansion()" class="btn btn-danger">Explore</button>
                 <button ng-click="gather(playerInventory)" ng-disabled="playButton" class="btn btn-success">Start Game</button>
                 <button ng-click="nextTurn()" class="btn btn-warning">Next Turn</button>
             </div>
