@@ -47,9 +47,9 @@ app.use(function(req, res, next){
 });
 
 app.use(session({
-    //store: new MongoStore({
-    //    url: mongoURI
-    //}),
+    store: new MongoStore({
+        url: mongoURI
+    }),
     secret: 'secret',
     key: 'user',
     resave: true,
