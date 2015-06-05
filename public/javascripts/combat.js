@@ -14,7 +14,6 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     $scope.bullets = 0;
     $scope.buy = 1;
     $scope.explore = 1;
-    $scope.numMonsters = $scope.easyMansion.length;
 
     $scope.buildMansion = function(array){
         return $scope.mansion = array;
@@ -125,6 +124,7 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
                 monsterId = array[i]._id;
                 $http.get('/monsters/' + monsterId).then(function (response) {
                     $scope.easyMansion.push(response.data);
+                    $scope.numMonsters = $scope.easyMansion.length;
                 });
             }
         }
