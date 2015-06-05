@@ -76,7 +76,8 @@ module.exports = function(grunt){
                     "player.html",
                     "combat.html",
                     "win.html",
-                    "lose.html"
+                    "lose.html",
+                    "howToPlay.html"
                 ],
                 "dest": "public/views/"
             },
@@ -90,7 +91,8 @@ module.exports = function(grunt){
                     "lose.js",
                     "player.js",
                     "registration.js",
-                    "win.js"
+                    "win.js",
+                    "howToPlay.js"
                 ],
                 "dest": "public/javascripts/"
             }

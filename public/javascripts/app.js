@@ -29,6 +29,10 @@ myApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpP
             templateUrl: '/views/lose.html',
             controller: 'LoseController'
         }).
+        when('/howToPlay', {
+            templateUrl: '/views/howToPlay.html',
+            controller: 'HowToPlayController'
+        }).
         otherwise({
             redirectTo: "/home"
         });
