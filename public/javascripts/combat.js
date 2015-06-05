@@ -1,5 +1,6 @@
 myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedPlayer', function($scope, $http, $location, SelectedPlayer){
     //setting ng-show variables
+    $scope.playButton = false;
     $scope.supplies = false;
     $scope.monster = false;
     //declaring arrays
@@ -233,6 +234,7 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     };
 
     $scope.gather = function(array){
+        $scope.playbutton = true;
         $scope.supplies = true;
         for(var i = 0; i < 5; i++){
             if(array[i].gold !== null){
