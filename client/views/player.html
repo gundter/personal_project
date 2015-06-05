@@ -9,10 +9,11 @@
 <div class="row">
     <div class="container col-md-6 text-center">
         <div>
-            <h1>Player Creator</h1>
+            <h2>Player Creator</h2>
             <p>Please enter the following information to create your player that will run through the Dungeon!</p>
             <label for="playerName">Player Name: </label>
             <input id="playerName" autofocus ng-required="true" type="text" placeholder="Enter your player name here" ng-model="player.playerName"/><br/>
+            <h3>Please click the "Click for Health!" button to assign a health value to your Player!</h3>
             <p ng-show="health">Player's health is: {{player.playerHealth}}</p>
             <button class="btn btn-info" ng-click="genHealth()">Click for Health!</button><br/><br/>
             <button class="btn btn-info" ng-click="add(player)">Submit Player</button>
