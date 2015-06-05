@@ -234,7 +234,7 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     };
 
     $scope.gather = function(array){
-        $scope.playbutton = true;
+        $scope.playButton = true;
         $scope.supplies = true;
         for(var i = 0; i < 5; i++){
             if(array[i].gold !== null){
