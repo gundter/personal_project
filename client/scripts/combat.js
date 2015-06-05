@@ -14,6 +14,7 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
     $scope.bullets = 0;
     $scope.buy = 1;
     $scope.explore = 1;
+    $scope.numMonsters = $scope.easyMansion.length;
 
     $scope.buildMansion = function(array){
         return $scope.mansion = array;
