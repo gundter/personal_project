@@ -237,19 +237,20 @@ myApp.controller('CombatController', ['$scope', '$http', '$location', 'SelectedP
         $scope.playButton = true;
         $scope.supplies = true;
         for(var i = 0; i < 5; i++){
-            if(array[i].gold !== null){
+            if(array[i].gold !== 0){
                 console.log("Entering gold conditional");
                 console.log($scope.money);
                 $scope.money = $scope.money + array[i].gold;
                 console.log($scope.money);
             }
-            if(array[i].ammoReceived !== null){
+            if(array[i].ammoReceived !== 0){
                 console.log("Entering ammo conditional");
                 console.log($scope.bullets);
                 $scope.bullets = $scope.bullets + array[i].ammoReceived;
                 console.log($scope.bullets);
             }
         }
+
     };
 
     $scope.selected = function(item){
